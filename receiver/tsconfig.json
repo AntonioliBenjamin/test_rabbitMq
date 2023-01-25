@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    /* Language and Environment */
+    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "types": ["node", "jest"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    /* Modules */
+    "resolveJsonModule": true,
+    "module": "commonjs" /* Specify what module code is generated. */,
+    "rootDir": "./src",
+    "outDir": "dist",
+    "strictNullChecks": false
+  },
+    "exclude": ["node_modules", "src/**/*.test.ts", "jest.config.ts"]
+}
