@@ -10,11 +10,12 @@ import {
 } from "ddd-messaging-bus";
 import {Container} from "inversify";
 
+const amqpUrl = process.env.URL
 const app = express()
 const port = 4000
 
 const container = new Container()
-const urlAmqp = 'amqps://xdoesltn:K8V5ZjrCUlIhKwFi6UsyJcEcGZyi8HvT@rattlesnake.rmq.cloudamqp.com/xdoesltn'
+
 
 export type YourDomainEventProperties = {
     userName: string;
@@ -36,7 +37,7 @@ class MyDomainEventHandler implements EventHandler {
 }
 
 async function init() {
-    await rabbitMqBuild(container, urlAmqp);
+    await rabbitMqBuild(container, amqpUrl);
     EventHandlerRegistry.register(MyDomainEvent, new MyDomainEventHandler());
 
     const eventReceiver = container.get<EventReceiver>(MessageIdentifiers.EventReceiver);
